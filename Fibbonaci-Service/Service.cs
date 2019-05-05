@@ -21,10 +21,10 @@ namespace Fibbonaci_Service
             bus.RespondAsync<FibbonaciRequest, FibbonaciResponse>(Responder);
         }
 
-        public void WaitForCompletion()
+        public async Task WaitForCompletion()
         {
             while (bus.IsConnected)
-                Task.Delay(1000);
+                await Task.Delay(1000);
         }
 
         private async Task<FibbonaciResponse> Responder(FibbonaciRequest arg)
