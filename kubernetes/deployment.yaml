@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fibbonaci-deployment
+  labels:
+    app: fibbonaci
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fibbonaci
+  template:
+    metadata:
+      name: fibbonaci
+      labels:
+        app: fibbonaci
+    spec:
+      containers:
+      - image: kaij/fibbonaci-service
+        name: fibbonaci
