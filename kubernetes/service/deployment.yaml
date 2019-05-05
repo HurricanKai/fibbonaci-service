@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fibbonaci-deployment
+  name: fibbonaci-service-deployment
   labels:
     app: fibbonaci
 spec:
@@ -11,13 +11,13 @@ spec:
       app: fibbonaci
   template:
     metadata:
-      name: fibbonaci
+      name: fibbonaci-service
       labels:
         app: fibbonaci
     spec:
       containers:
       - image: kaij/fibbonaci-service
-        name: fibbonaci
+        name: fibbonaci-service
         env:
         - name: RABBITMQ_CONNECTION_STRING
           value: host=rabbitmq-service;virtualHost=/;username=guest;password=guest

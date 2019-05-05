@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fibbonaci-api-service
+  labels:
+    app: fibbonaci
+spec:
+  ports:
+  - port: 443
+    protocol: TCP
+    targetPort: 443
+    name: https
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    name: http
+  selector:
+    app: fibbonaci-api

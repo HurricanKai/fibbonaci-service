@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fibbonaci-api-deployment
+  labels:
+    app: fibbonaci
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fibbonaci
+  template:
+    metadata:
+      name: fibbonaci-api
+      labels:
+        app: fibbonaci
+    spec:
+      containers:
+      - image: kaij/fibbonaci-api
+        name: fibbonaci-api
+        ports:
+        - containerPort: 443
+          name: https
+        - containerPort: 80
+          name: http
