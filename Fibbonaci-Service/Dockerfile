@@ -3,11 +3,11 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-stretch AS build
 WORKDIR /src
-COPY ["Fibbonaci Service/Fibbonaci Service.csproj", "Fibbonaci Service/"]
+COPY ["FibbonacivService/Fibbonaci Service.csproj", "Fibbonaci-Service/"]
 COPY ["Messages/Messages.csproj", "Messages/"]
-RUN dotnet restore "Fibbonaci Service/Fibbonaci Service.csproj"
+RUN dotnet restore "Fibbonaci-Service/Fibbonaci Service.csproj"
 COPY . .
-WORKDIR "/src/Fibbonaci Service"
+WORKDIR "/src/Fibbonaci-Service"
 RUN dotnet build "Fibbonaci Service.csproj" -c Release -o /app
 
 FROM build AS publish
