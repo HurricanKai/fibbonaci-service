@@ -11,9 +11,9 @@ namespace Fibbonaci_Service
     {
         private IBus bus;
 
-        public Service(string connectionString)
+        public Service(IBus bus)
         {
-            bus = RabbitHutch.CreateBus(connectionString);
+            _bus = bus;
         }
 
         public void Init()

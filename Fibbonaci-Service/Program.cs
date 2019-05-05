@@ -12,7 +12,7 @@ namespace Fibbonaci_Service
             Console.WriteLine("Connecting...");
             var connectionString = Environment.GetEnvironmentVariable("RABBITMQ_CONNECTION_STRING");
 
-            using (var service = new Service(connectionString))
+            using (var service = new Service(RabbitHutch.CreateBus(connectionString)))
             {
                 service.Init();
                 await service.WaitForCompletion();
