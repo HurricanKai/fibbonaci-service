@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28822.285
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibbonaci Service", "Fibbonaci Service\Fibbonaci Service.csproj", "{2F024BA3-7ADE-4B58-8A39-391B2918422A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messages.csproj", "{AD665AFB-CDBA-4141-977D-1C771A16B233}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F024BA3-7ADE-4B58-8A39-391B2918422A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F024BA3-7ADE-4B58-8A39-391B2918422A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F024BA3-7ADE-4B58-8A39-391B2918422A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F024BA3-7ADE-4B58-8A39-391B2918422A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD665AFB-CDBA-4141-977D-1C771A16B233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD665AFB-CDBA-4141-977D-1C771A16B233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD665AFB-CDBA-4141-977D-1C771A16B233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD665AFB-CDBA-4141-977D-1C771A16B233}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A0F872A-E091-47A7-96F3-CAEF4FE0B0D8}
+	EndGlobalSection
+EndGlobal
