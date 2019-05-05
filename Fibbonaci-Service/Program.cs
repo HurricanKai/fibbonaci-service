@@ -7,7 +7,7 @@ namespace Fibbonaci_Service
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(String[] args)
         {
             Console.WriteLine("Connecting...");
             var connectionString = Environment.GetEnvironmentVariable("RABBITMQ_CONNECTION_STRING");
@@ -15,7 +15,7 @@ namespace Fibbonaci_Service
             using (var service = new Service(connectionString))
             {
                 service.Init();
-                service.WaitForCompletion();
+                await service.WaitForCompletion();
             }
         }
     }
