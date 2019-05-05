@@ -34,6 +34,8 @@ namespace Fibbonaci_Service
 
         private async Task<int> CalculateFibbonaci(int n)
         {
+            if (n < 0)
+                return -1;
             var a = GetOrRequestFibbonaci(n - 1);
             var b = GetOrRequestFibbonaci(n - 2);
             return (await a) + (await b);

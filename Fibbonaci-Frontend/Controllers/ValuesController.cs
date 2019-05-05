@@ -23,7 +23,9 @@ namespace Fibbonaci_Frontend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<int>> Get(int id)
         {
-            return (await _bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(id))).Value;
+            if (id < 0)
+                return NotFound(id);
+            return Ok((await _bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(id))).Value);
         }
     }
 }
