@@ -18,3 +18,6 @@ spec:
       containers:
       - image: kaij/fibbonaci-service
         name: fibbonaci
+        env:
+        - name: RABBITMQ_CONNECTION_STRING
+          value: host=rabbitmq-service;virtualHost=/;username=guest;password=guest
