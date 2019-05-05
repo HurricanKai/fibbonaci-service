@@ -34,9 +34,39 @@ namespace Fibbonaci_Service
 
         private async Task<int> CalculateFibbonaci(int n)
         {
-            var a = bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(n - 1));
-            var b = bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(n - 2));
-            return (await a).Value + (await b).Value;
+            var a = GetOrRequestFibbonaci(n - 1);
+            var b = GetOrRequestFibbonaci(n - 2);
+            return (await a) + (await b);
+        }
+
+        private async Task<int> GetOrRequestFibbonaci(int n)
+        {
+            if (TryGetCachedFibbonaci(n, out int result))
+                return result;
+
+            else
+                return (await bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(n - 1))).Value;
+        }
+
+        private bool TryGetCachedFibbonaci(int n, out int result)
+        {
+            if (n == 0)
+            {
+                result = 0;
+                return true;
+            }
+            if (n == 1)
+            {
+                result = 1;
+                return true;
+            }
+            if (n == 2)
+            {
+                result = 1;
+                return true;
+            }
+            result = -1;
+            return false;
         }
 
         public void Dispose()
