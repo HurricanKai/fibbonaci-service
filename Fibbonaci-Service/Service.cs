@@ -47,7 +47,7 @@ namespace Fibbonaci_Service
                 return result;
 
             else
-                return (await _bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(n - 1))).Value;
+                return (await _bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(n))).Value;
         }
 
         private bool TryGetCachedFibbonaci(int n, out int result)
