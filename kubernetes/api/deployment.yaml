@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: fibbonaci-api-deployment
   labels:
-    app: fibbonaci
+    app: fibbonaci-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fibbonaci
+      app: fibbonaci-api
   template:
     metadata:
       name: fibbonaci-api
       labels:
-        app: fibbonaci
+        app: fibbonaci-api
     spec:
       containers:
-      - image: kaij/fibbonaci-api
+      - image: kaij/fibbonaci-api:1.0
         name: fibbonaci-api
         env:
         - name: RABBITMQ_CONNECTION_STRING

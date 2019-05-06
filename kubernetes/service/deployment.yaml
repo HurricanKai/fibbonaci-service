@@ -16,7 +16,7 @@ spec:
         app: fibbonaci
     spec:
       containers:
-      - image: kaij/fibbonaci-service
+      - image: kaij/fibbonaci-service:1.0
         name: fibbonaci-service
         env:
         - name: RABBITMQ_CONNECTION_STRING
