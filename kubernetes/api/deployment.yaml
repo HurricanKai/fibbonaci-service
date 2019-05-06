@@ -18,6 +18,11 @@ spec:
       containers:
       - image: kaij/fibbonaci-api
         name: fibbonaci-api
+        env:
+        - name: RABBITMQ_CONNECTION_STRING
+          value: host=rabbitmq-service;virtualHost=/;username=guest;password=guest
+        - name: ASPNETCORE_BASEPATH
+          value: /api
         ports:
         - containerPort: 443
           name: https
