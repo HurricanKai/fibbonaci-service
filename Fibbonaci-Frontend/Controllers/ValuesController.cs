@@ -22,11 +22,21 @@ namespace Fibbonaci_Frontend.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<ActionResult<FibbonaciResult>> Get(int id)
         {
             if (id < 0)
                 return NotFound(id);
-            return Content((await _bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(id))).Value.ToString());
+            return new FibbonaciResult((await _bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(id))).Value);
+        }
+    }
+
+    public class FibbonaciResult
+    {
+        public int Value { get; set; }
+
+        public FibbonaciResult(int value)
+        {
+            this.Value = value;
         }
     }
 }
