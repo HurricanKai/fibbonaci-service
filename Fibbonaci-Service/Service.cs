@@ -9,7 +9,7 @@ namespace Fibbonaci_Service
 {
     public class Service : IDisposable
     {
-        private IBus bus;
+        private IBus _bus;
 
         public Service(IBus bus)
         {
@@ -18,12 +18,12 @@ namespace Fibbonaci_Service
 
         public void Init()
         {
-            bus.RespondAsync<FibbonaciRequest, FibbonaciResponse>(Responder);
+            _bus.RespondAsync<FibbonaciRequest, FibbonaciResponse>(Responder);
         }
 
         public async Task WaitForCompletion()
         {
-            while (bus.IsConnected)
+            while (_bus.IsConnected)
                 await Task.Delay(1000);
         }
 
@@ -47,7 +47,7 @@ namespace Fibbonaci_Service
                 return result;
 
             else
-                return (await bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(n - 1))).Value;
+                return (await _bus.RequestAsync<FibbonaciRequest, FibbonaciResponse>(new FibbonaciRequest(n - 1))).Value;
         }
 
         private bool TryGetCachedFibbonaci(int n, out int result)
@@ -73,7 +73,7 @@ namespace Fibbonaci_Service
 
         public void Dispose()
         {
-            bus?.Dispose();
+            _bus?.Dispose();
         }
     }
 }
